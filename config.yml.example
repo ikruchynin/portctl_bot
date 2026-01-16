@@ -1,0 +1,12 @@
+switches:
+  sw1:
+    type: cisco_ios
+    host: 10.0.0.1
+    user: admin
+    password: PASSWORD_HERE
+    #add existing ports here, bot uses this aliases to manage ports
+    interfaces:
+      client1: Ethernet0/1
+      uplink1: GigabitEthernet0/48
+    protected:
+      - uplink1
