@@ -38,6 +38,34 @@ class Switch:
             return conn.send_config_set(commands)
 
 
+    # -------- ПУБЛІЧНИЙ ІНТЕРФЕЙС --------
+
+    def status(self, interface):
+        raise NotImplementedError
+
+    def show_interface_config(self, interface):
+        raise NotImplementedError
+
+    def show_running_config(self):
+        raise NotImplementedError
+
+    def get_logs(self, lines=10):
+        raise NotImplementedError
+
+    def up(self, interface):
+        raise NotImplementedError
+
+    def down(self, interface):
+        raise NotImplementedError
+
+    def set_access_vlan(self, interface, vlan):
+        raise NotImplementedError
+
+    def add_trunk_vlan(self, interface, vlan):
+        raise NotImplementedError
+
+
+
 # =========================================================
 
 
