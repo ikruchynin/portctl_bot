@@ -41,7 +41,7 @@ def load_switches(path=CONFIG_PATH):
     switches = {}
 
     for name, sw in raw_switches.items():
-        switches[name] = {
+        switches[name.lower()] = {
             "device": create_device(name, sw),
             "interfaces": sw.get("interfaces", {}),
             "protected": set(sw.get("protected", [])),

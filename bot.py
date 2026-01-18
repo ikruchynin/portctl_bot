@@ -63,7 +63,7 @@ def has_force_flag(text):
 
 
 def get_switch(name):
-    return SWITCHES.get(name)
+    return SWITCHES.get(name.lower())
 
 
 def trim_output(text):
