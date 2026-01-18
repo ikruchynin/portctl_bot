@@ -40,21 +40,20 @@ def load_switches(path=CONFIG_PATH):
 
     switches = {}
 
-for name, sw in raw_switches.items():
-    interfaces = sw.get("interfaces", {})
-    protected = sw.get("protected", [])
+    for name, sw in raw_switches.items():
+        interfaces = sw.get("interfaces", {})
+        protected = sw.get("protected", [])
 
-    # перевірка на коректність даних в config.yml для запобігання непередбачуваної поведінки
-    if not isinstance(interfaces, dict):
-        raise TypeError(f"{name}: interfaces must be a dict")
-    if not isinstance(protected, list):
-        raise TypeError(f"{name}: protected must be a list")
+        # перевірка на коректність даних в config.yml для запобігання непередбачуваної поведінки
+        if not isinstance(interfaces, dict):
+            raise TypeError(f"{name}: interfaces must be a dict")
+        if not isinstance(protected, list):
+            raise TypeError(f"{name}: protected must be a list")
 
-    switches[name.lower()] = {
-        "device": create_device(name, sw),
-        "interfaces": interfaces,
-        "protected": set(protected),
-    }
-
+        switches[name.lower()] = {
+            "device": create_device(name, sw),
+            "interfaces": interfaces,
+            "protected": set(protected),
+        }
 
     return switches
